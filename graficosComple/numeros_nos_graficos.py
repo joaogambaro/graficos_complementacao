@@ -54,9 +54,9 @@ faux.num_dec(num, d=1)
 
 # casas decimais numeros
 def num_dec(num, d=1):
-    
+
     #Escreve um número com 'd'' casas decimais
-    
+
     if d==0:
         text = '{:,.0f}'.format(num)
     elif d==1:
@@ -71,9 +71,9 @@ def num_dec(num, d=1):
 
 
 def porcent_dec(num, d=1):
-    
+
     #Escreve uma porcentagem com 'd'' casas decimais
-    
+
     if d==0:
         text = '{:,.0f}%'.format(num)
     elif d==1:
@@ -261,6 +261,7 @@ def porc_num_bar_verticais(ax, sum_tot=None,  f_texto_bar=0.025,  f_tam_letra=0.
 
         # calcula a porcentagem
         porc= (y/sum_tot)*100
+
 
         # monta o texto
         if org_texto==0:
@@ -450,24 +451,24 @@ def porc_num_bar_horizontais(ax,
         if org_texto==0:
             # formato 0: num
             #            porc
-            texto = num_dec(p.get_width(),d=d_num)+'\n'+\
-                    porcent_dec(porc, d=d_porc)
+            texto = faux.num_dec(p.get_width(),d=d_num)+'\n'+\
+                    faux.porcent_dec(porc, d=d_porc)
 
         elif org_texto==1:
             # formato 1: porc
             #            num
-            texto = porcent_dec(porc, d=d_porc)+'\n'+\
-                    num_dec(p.get_width(),d=d_num)
+            texto = faux.porcent_dec(porc, d=d_porc)+'\n'+\
+                    faux.num_dec(p.get_width(),d=d_num)
 
         elif org_texto==2:
             #formato 2: num(porc)
-            texto = num_dec(p.get_width(),d=d_num)+' ('+\
-                    porcent_dec(porc, d=d_porc)+')'
+            texto = faux.num_dec(p.get_width(),d=d_num)+' ('+\
+                    faux.porcent_dec(porc, d=d_porc)+')'
 
         elif org_texto==3:
             #formato 3: porc(num)
-            texto = porcent_dec(porc, d=d_porc)+' ('+\
-                    num_dec(p.get_width(),d=d_num)+')'
+            texto = faux.porcent_dec(porc, d=d_porc)+' ('+\
+                    faux.num_dec(p.get_width(),d=d_num)+')'
 
 
         # escreve na figura
@@ -523,9 +524,6 @@ def num_graf_linhas(ax,
             ax.annotate(f'{prefix}{faux.num_dec(y, d)}{sufix}',
                         xy=(x, y+ds),
                         **kargs
-                       ) 
+                       )
 
     return(ds)
-
-
-
